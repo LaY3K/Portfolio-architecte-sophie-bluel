@@ -98,6 +98,7 @@ nav li {
 
 li:hover {
 	color: #B1663C;
+	cursor: pointer;
 }
 #introduction {
 	display: flex;
@@ -149,6 +150,11 @@ li:hover {
 	background-color: #1D6154;
 	color: #FFFEF8;
 }
+.filters button:hover {
+	color: #B1663C;
+	cursor: pointer;
+}
+
 
 .gallery {
 	width: 100%;
@@ -203,6 +209,10 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+}
+input[type="submit"]:hover {
+	color: #B1663C;
+	cursor: pointer;
 }
 
 footer nav ul {
