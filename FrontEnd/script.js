@@ -1,5 +1,30 @@
 const gallery = document.querySelector(".gallery");
 const filters = document.querySelector(".filters");
+const token = localStorage.getItem("token");
+
+console.log(token);
+    if (token) {
+        console.log("Utilisateur connecté");
+
+    const editMode = document.querySelector("#edit-mode");
+        editMode.style.display = "flex";
+        filters.style.display = "none";
+
+    const editLink = document.querySelector("#edit-link");
+        editLink.style.display = "inline-flex";
+
+    const loginLink = document.querySelector("#login-link");
+        loginLink.textContent = "logout";
+
+        loginLink.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        localStorage.removeItem("token");
+
+        window.location.href = "index.html";
+        });
+
+    }
 
 let works = [];
 

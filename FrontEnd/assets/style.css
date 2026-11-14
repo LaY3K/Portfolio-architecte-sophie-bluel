@@ -54,6 +54,26 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+#edit-mode {
+    height: 59px;
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Work Sans';
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	gap: 11px;
+	display: none;
+}
+#edit-mode img {
+    width: 16px;
+    height: 16px;
+}
 header {
 	display: flex;
 	justify-content: space-between;
@@ -124,8 +144,26 @@ li:hover {
 	margin-bottom: 0.5em;
 }
 #portfolio h2 {
-	text-align: center;
-	margin-bottom: 50px;
+    text-align: center;
+    margin-bottom: 0;
+}
+.title-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+#edit-link {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Work Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    color: #000000;
+    text-decoration: none;
 }
 .filters {
 	display: flex;
