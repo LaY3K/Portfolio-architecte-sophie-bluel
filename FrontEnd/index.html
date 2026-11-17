@@ -71,6 +71,78 @@
 		</ul>
 	</nav>
 </footer>
+
+<div id="modal" hidden>
+    
+	<div class="modal-content">
+
+    <!-- ZONE 1 : GALERIE PHOTO -->
+    	<div id="modal-gallery">
+
+        	<h2>Galerie photo</h2>
+        	<button id="close-modal" type="button">×</button>
+
+        	<div class="modal-gallery-grid">
+            <!-- Les photos seront ajoutées ici par JavaScript -->
+			</div>
+        	<hr>
+
+        	<button id="add-photo-button" type="button">
+            Ajouter une photo
+			</button>
+    	</div>
+
+    <!-- ZONE 2 : FORMULAIRE D'AJOUT -->
+    	<div id="modal-form" hidden>
+
+        	<button id="back-to-gallery" type="button">
+    <img src="assets/icons/icon-arrow-left.svg" alt="Retour à la galerie">
+</button>
+        	<h2>Ajout photo</h2>
+        	<button id="close-modal-form" type="button">×</button>
+        	<form id="add-photo-form">
+            	<div class="upload-area">
+    <img
+        src="assets/icons/icon-image.svg"
+        alt=""
+        class="upload-icon"
+    >
+
+    <label for="photo-file" class="upload-button">
+        + Ajouter photo
+    </label>
+
+    <input
+        type="file"
+        id="photo-file"
+        accept="image/jpeg, image/png"
+    >
+
+    <p>jpg, png : 4mo max</p>
+</div>
+
+            	<label for="photo-title">Titre</label>
+            	<input
+                	type="text"
+                	id="photo-title"
+                	name="title"
+            	>
+
+            	<label for="photo-category">Catégorie</label>
+            	<select id="photo-category" name="category">
+                	<option value="">Choisir une catégorie</option>
+            	</select>
+
+<hr class="form-divider">
+
+            	<button type="submit" disabled>
+                Valider
+				</button>
+        	</form>
+    	</div>
+	</div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>

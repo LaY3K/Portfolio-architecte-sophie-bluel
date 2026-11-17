@@ -1,6 +1,40 @@
 const gallery = document.querySelector(".gallery");
 const filters = document.querySelector(".filters");
 const token = localStorage.getItem("token");
+const modalGalleryGrid = document.querySelector(".modal-gallery-grid");
+const modalGallery = document.querySelector("#modal-gallery");
+const modalForm = document.querySelector("#modal-form");
+const modal = document.querySelector("#modal");
+
+const closeModal = document.querySelector("#close-modal");
+closeModal.addEventListener("click", () => {
+    modal.hidden = true;
+});
+const closeModalForm = document.querySelector("#close-modal-form");
+
+closeModalForm.addEventListener("click", () => {
+    modal.hidden = true;
+});
+
+modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.hidden = true;
+    }
+});
+
+const addPhotoButton = document.querySelector("#add-photo-button");
+
+addPhotoButton.addEventListener("click", () => {
+    modalGallery.hidden = true;
+    modalForm.hidden = false;
+});
+
+const backToGallery = document.querySelector("#back-to-gallery");
+
+backToGallery.addEventListener("click", () => {
+    modalForm.hidden = true;
+    modalGallery.hidden = false;
+});
 
 console.log(token);
     if (token) {
@@ -12,6 +46,14 @@ console.log(token);
 
     const editLink = document.querySelector("#edit-link");
         editLink.style.display = "inline-flex";
+
+        editLink.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        modal.hidden = false;
+        modalGallery.hidden = false;
+        modalForm.hidden = true;
+    });
 
     const loginLink = document.querySelector("#login-link");
         loginLink.textContent = "logout";
@@ -117,4 +159,25 @@ fetch ("http://localhost:5678/api/works")
 
         });
         
+        works.forEach(work => {
+
+            const figure = document.createElement("figure");
+            const img = document.createElement("img");
+            const deleteButton = document.createElement("button");
+            const deleteIcon = document.createElement("img");
+
+            img.src = work.imageUrl;
+            img.alt = work.title;
+
+            deleteIcon.src = "assets/icons/trash-icon.svg";
+            deleteIcon.alt = "Supprimer";
+
+            deleteButton.appendChild(deleteIcon);
+
+            figure.appendChild(img);
+            figure.appendChild(deleteButton);
+
+            modalGalleryGrid.appendChild(figure);
+
+        });
     });
