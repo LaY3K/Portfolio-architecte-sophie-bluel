@@ -10,11 +10,13 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
 	<div id="edit-mode">
     	<img src="assets/icons/edit.png" alt="">
     	<span>Mode édition</span>
 	</div>
+
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
@@ -26,6 +28,7 @@
 		</ul>
 	</nav>
 </header>
+
 <main>
 	<section id="introduction">
 		<figure>
@@ -38,6 +41,7 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
+
 	<section id="portfolio">
 		<div class="title-edit">
 			<h2>Mes Projets</h2>
@@ -49,6 +53,7 @@
 		<div class="filters"></div>
 		<div class="gallery"></div>
 	</section>
+
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
@@ -62,6 +67,7 @@
 			<input type="submit" value="Envoyer">
 		</form>
 	</section>
+
 </main>
 
 <footer>
@@ -96,36 +102,36 @@
     	<div id="modal-form" hidden>
 
         	<button id="back-to-gallery" type="button">
-    <img src="assets/icons/icon-arrow-left.svg" alt="Retour à la galerie">
-</button>
+    		<img src="assets/icons/icon-arrow-left.svg" alt="Retour à la galerie">
+			</button>
         	<h2>Ajout photo</h2>
         	<button id="close-modal-form" type="button">×</button>
         	<form id="add-photo-form">
             	<div class="upload-area">
-    <img
-        src="assets/icons/icon-image.svg"
-        alt=""
-        class="upload-icon"
-    >
+    				<img
+        			src="assets/icons/icon-image.svg"
+        			alt=""
+        			class="upload-icon"
+    				>
 
-    <label for="photo-file" class="upload-button">
-        + Ajouter photo
-    </label>
+    				<label for="photo-file" class="upload-button">
+        			+ Ajouter photo
+    				</label>
 
-    <input
-        type="file"
-        id="photo-file"
-        accept="image/jpeg, image/png"
-    >
+    				<input
+        			type="file"
+        			id="photo-file"
+        			accept="image/jpeg, image/png"
+    				>
 
-    <p>jpg, png : 4mo max</p>
-</div>
+    				<p>jpg, png : 4mo max</p>
+				</div>
 
             	<label for="photo-title">Titre</label>
             	<input
-                	type="text"
-                	id="photo-title"
-                	name="title"
+                type="text"
+                id="photo-title"
+                name="title"
             	>
 
             	<label for="photo-category">Catégorie</label>
@@ -133,7 +139,7 @@
                 	<option value="">Choisir une catégorie</option>
             	</select>
 
-<hr class="form-divider">
+				<hr class="form-divider">
 
             	<button type="submit" disabled>
                 Valider

@@ -161,6 +161,8 @@ fetch ("http://localhost:5678/api/works")
         
         works.forEach(work => {
 
+            console.log(work.id);
+
             const figure = document.createElement("figure");
             const img = document.createElement("img");
             const deleteButton = document.createElement("button");
@@ -173,6 +175,27 @@ fetch ("http://localhost:5678/api/works")
             deleteIcon.alt = "Supprimer";
 
             deleteButton.appendChild(deleteIcon);
+            deleteButton.addEventListener("click", () => {
+
+                fetch(`http://localhost:5678/api/works/${work.id}`, {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        console.log("Travail supprimé de la base de données !");
+                        figure.remove();
+
+                    } else {
+                        console.error("Erreur lors de la suppression :", response.status);
+                    }
+                })
+                .catch(error => {
+                    console.error("Erreur réseau :", error);
+                });
+            });
 
             figure.appendChild(img);
             figure.appendChild(deleteButton);
