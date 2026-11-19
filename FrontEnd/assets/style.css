@@ -688,3 +688,30 @@ footer nav ul {
 #add-photo-form button[type="submit"]:not(:disabled) {
     background-color: #1D6154;
 }
+
+/* Zone d'ajout de photo */
+.upload-area {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Lorsque la photo est sélectionnée */
+.upload-area.has-preview .upload-button,
+.upload-area.has-preview p {
+    display: none;
+}
+
+/* Affichage de la photo sélectionnée */
+.upload-area.has-preview .upload-icon {
+    width: 129px;
+    height: 193px;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+}
+.form-error {
+    color: #d9534f;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0;
+}
