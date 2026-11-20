@@ -81,6 +81,44 @@ addPhotoForm.addEventListener("submit", (event) => {
     })
     .then(newWork => {
         console.log("Projet ajouté avec succès :", newWork);
+        addPhotoForm.reset();
+        uploadIcon.src = "";
+        uploadArea.classList.remove("has-preview");
+
+        works.push(newWork);
+
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        const figcaption = document.createElement("figcaption");
+
+        img.src = newWork.imageUrl;
+        img.alt = newWork.title;
+        figcaption.textContent = newWork.title;
+
+        figure.appendChild(img);
+        figure.appendChild(figcaption);
+
+        gallery.appendChild(figure);
+
+        const modalFigure = document.createElement("figure");
+        const modalImg = document.createElement("img");
+        const deleteButton = document.createElement("button");
+        const deleteIcon = document.createElement("img");
+
+        modalImg.src = newWork.imageUrl;
+        modalImg.alt = newWork.title;
+
+        deleteIcon.src = "assets/icons/trash-icon.svg";
+        deleteIcon.alt = "Supprimer";
+
+        deleteButton.appendChild(deleteIcon);
+
+        modalFigure.appendChild(modalImg);
+        modalFigure.appendChild(deleteButton);
+
+        modalGalleryGrid.appendChild(modalFigure);
+
+        modal.hidden = true;
     })
     .catch(error => {
         console.error("Erreur :", error);
@@ -239,6 +277,8 @@ fetch ("http://localhost:5678/api/works")
             const figcaption = document.createElement("figcaption");
 
             img.src = work.imageUrl;
+            figure.dataset.id = work.id;
+            console.log(figure.dataset.id);
             img.alt = work.title;
             figcaption.textContent = work.title;
 
@@ -257,6 +297,8 @@ fetch ("http://localhost:5678/api/works")
             const img = document.createElement("img");
             const deleteButton = document.createElement("button");
             const deleteIcon = document.createElement("img");
+
+            figure.dataset.id = work.id;
 
             img.src = work.imageUrl;
             img.alt = work.title;
@@ -279,6 +321,7 @@ fetch ("http://localhost:5678/api/works")
                     if (response.ok) {
                         console.log("Travail supprimé de la base de données !");
                         figure.remove();
+                        gallery.querySelector(`[data-id="${work.id}"]`).remove();
 
                     } else {
                         console.error("Erreur lors de la suppression :", response.status);
